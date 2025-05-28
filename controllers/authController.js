@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-// Dummy hardcoded admin
+// Pre-hashed password for '123'
 const ADMIN = {
   email: 'evodemrtn@gmail.com',
-  password: bcrypt.hashSync('123', 10), // hashed password
+  password: '$2a$10$eS6p7m3nUeXq6TmjR5rJfOzG5tcSJo1.OwB3VEJ8ilGqT8Y9WeHy6', // hash of '123'
 };
 
 // Login to get token
