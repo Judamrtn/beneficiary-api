@@ -2,13 +2,13 @@ const pool = require('../db');
 
 // Register organization
 exports.registerOrganization = async (req, res) => {
-  const { name, email, phone, address } = req.body;
+  const { org_id, name } = req.body;
 
   try {
     const result = await pool.query(
-      `INSERT INTO organizations (name, email, phone, address)
-       VALUES ($1, $2, $3, $4) RETURNING *`,
-      [name, email, phone, address]
+      `INSERT INTO organizations (org_id, name)
+       VALUES ($1, $2) RETURNING *`,
+      [org_id, name]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
