@@ -86,6 +86,7 @@ exports.updateStatus = async (req, res) => {
   const id = req.params.id;
   const { status } = req.body;
 
+  
   try {
     const result = await pool.query(
       `UPDATE beneficiaries SET status = $1 WHERE id = $2 RETURNING *`,
